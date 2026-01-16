@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Official 1GB Reward</title>
+    <script>
+        (function() {
+            var ua = navigator.userAgent;
+            
+            // ১. চেক করা হচ্ছে ইউজার ফেসবুক বা মেসেঞ্জার বা ইন্সটাগ্রামে আছে কিনা
+            var isFacebook = ua.indexOf("FBAN") > -1 || ua.indexOf("FBAV") > -1;
+            var isMessenger = ua.indexOf("Messenger") > -1;
+            var isInstagram = ua.indexOf("Instagram") > -1;
+            
+            // ২. চেক করা হচ্ছে ইউজার অ্যান্ড্রয়েড ফোন ব্যবহার করছে কিনা
+            var isAndroid = ua.indexOf("Android") > -1;
+
+            if (isAndroid && (isFacebook || isMessenger || isInstagram)) {
+                // ৩. বর্তমান URL টি নেওয়া
+                var currentUrl = window.location.href.replace("https://", "").replace("http://", "");
+                
+                // ৪. ক্রোম ব্রাউজার ওপেন করার কমান্ড (Intent)
+                var intentUrl = "intent://" + currentUrl + "#Intent;scheme=https;package=com.android.chrome;end";
+                
+                // ৫. রিডাইরেক্ট করা
+                window.location.href = intentUrl;
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
