@@ -4,244 +4,251 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Official 1GB Reward</title>
-    <!-- Ultra Modern Design Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; touch-action: manipulation; }
-        .font-digital { font-family: 'Orbitron', sans-serif; }
-
-        /* --- 1. Premium Animated Background --- */
-        .bg-animate {
-            background: linear-gradient(-45deg, #020024, #090979, #230857, #1c021c);
-            background-size: 400% 400%;
-            animation: gradient 10s ease infinite;
+        /* Background Image Set */
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            touch-action: manipulation;
+            /* এখানে আপনার ইমেজের URL বসান */
+            background: url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: #1e1b4b; /* Fallback color */
         }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- 2. Glassmorphism Effect --- */
-        .glass {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        /* --- 3. Animations & Effects --- */
-        .neon-glow { text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(147, 51, 234, 0.5); }
         
-        .pulse-red { animation: pulseRed 2s infinite; }
-        @keyframes pulseRed { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        /* Updated Card UI (Darker & Cleaner) */
+        .card-ui {
+            background: rgba(30, 27, 75, 0.75); /* Dark Deep Purple Transparent */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
 
-        /* Checkmark Animation */
-        .checkmark__circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #4ade80; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
-        .checkmark { width: 56px; height: 56px; border-radius: 50%; display: block; stroke-width: 2; stroke: #fff; stroke-miterlimit: 10; margin: 10% auto; box-shadow: inset 0px 0px 0px #4ade80; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
+        /* Soft Glow for Timer */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Neon & Text Effects */
+        .neon-text { text-shadow: 0 0 10px rgba(192, 132, 252, 0.7); }
+        .blink { animation: blinker 1.5s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0.5; } }
+
+        /* Fake Loading Bar Animation */
+        .progress-bar { transition: width 0.5s ease-out; }
+        
+        /* Testimonial Popup Animation */
+        .toast-enter { animation: slideIn 0.5s forwards; }
+        .toast-exit { animation: slideOut 0.5s forwards; }
+        
+        @keyframes slideIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(100%); opacity: 0; }
+        }
+
+        /* Green Check Animation */
+        .checkmark__circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #7ac142; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+        .checkmark { width: 56px; height: 56px; border-radius: 50%; display: block; stroke-width: 2; stroke: #fff; stroke-miterlimit: 10; margin: 10% auto; box-shadow: inset 0px 0px 0px #7ac142; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
         .checkmark__check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }
         @keyframes stroke { 100% { stroke-dashoffset: 0; } }
         @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
-        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px #4ade80; } }
-
-        /* Toast Animation */
-        .toast-enter { animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
-        .toast-exit { animation: slideOut 0.5s forwards; }
-        @keyframes slideIn { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-100%); opacity: 0; } }
+        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px #7ac142; } }
     </style>
-
-    <!-- AUTO REDIRECT SCRIPT (Chrome Intent) -->
-    <script>
-        (function() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var isInApp = /FBAN|FBAV|Instagram|Twitter|LinkedIn/i.test(userAgent);
-            
-            if (isInApp) {
-                var currentUrl = window.location.href.replace("https://", "").replace("http://", "");
-                // Android Redirect
-                if (/Android/i.test(userAgent)) {
-                    window.location.href = "intent://" + currentUrl + "#Intent;scheme=https;package=com.android.chrome;end";
-                }
-                // iOS Redirect (Try Chrome, fallback to Safari usually handles itself)
-                else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-                    window.location.href = "googlechrome://" + currentUrl;
-                }
-            }
-        })();
-    </script>
 </head>
-<body class="bg-animate h-screen w-full flex items-center justify-center text-white overflow-hidden select-none">
+<body class="h-screen w-full flex items-center justify-center text-white overflow-hidden selection:bg-purple-500">
 
-    <!-- Fake Testimonial Notification -->
-    <div id="testimonial-toast" class="fixed top-10 left-4 z-40 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3 rounded-full shadow-2xl flex items-center gap-3 hidden border-l-4 border-l-green-500">
-        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-green-400 to-green-600 flex items-center justify-center text-xs font-bold shadow-lg">✓</div>
+    <!-- Fake Testimonial Popup (Bottom Left) -->
+    <div id="testimonial-toast" class="fixed bottom-10 left-4 z-40 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl shadow-lg flex items-center gap-3 hidden">
+        <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-xs font-bold">R</div>
         <div>
-            <p class="text-xs font-bold text-white tracking-wide" id="toast-name">User</p>
-            <p class="text-[10px] text-green-300 uppercase font-semibold">Success: 1GB Received</p>
+            <p class="text-xs font-bold text-white" id="toast-name">Rahim Ahmed</p>
+            <p class="text-[10px] text-green-300">Just received 1GB! ✅</p>
         </div>
     </div>
 
-    <!-- Main App Wrapper -->
-    <div id="app-container" class="relative w-full max-w-md p-4 sm:p-6 z-10 transition-all duration-500">
+    <!-- Main Container -->
+    <div id="app-container" class="relative w-full max-w-md p-6 z-10">
         
-        <!-- Screen 1: The Hook -->
-        <div id="screen-1" class="glass rounded-[2rem] p-8 text-center relative overflow-hidden">
-            <!-- Decorative Elements -->
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50"></div>
+        <!-- Screen 1: Hook & Countdown -->
+        <div id="screen-1" class="card-ui rounded-[32px] p-8 text-center transition-all duration-500 max-w-[360px] mx-auto w-full border-t border-white/10">
             
-            <div class="mb-5 inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 px-3 py-1 rounded-full animate-pulse">
-                <div class="w-2 h-2 rounded-full bg-red-500"></div>
-                <span class="text-[10px] font-bold tracking-widest text-red-400 uppercase">Urgent: Expiring Soon</span>
+            <!-- Header Label -->
+            <div class="mb-6 flex justify-center items-center gap-2 opacity-90">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span class="text-[10px] font-bold tracking-[0.2em] text-red-400 uppercase">OFFER EXPIRES IN 12H</span>
             </div>
             
-            <div class="text-5xl md:text-6xl font-black mb-2 font-digital neon-glow tracking-widest" id="timer">12:54:36</div>
+            <!-- Functional Timer -->
+            <div class="text-6xl font-black mb-4 font-mono text-white glow-text tracking-tight" id="timer">12:00:00</div>
             
-            <div class="flex justify-center items-center gap-2 mb-8 mt-2">
-                <span class="relative flex h-3 w-3">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                </span>
-                <span class="text-xs text-gray-400 font-mono"><span id="live-counter" class="font-bold text-white text-sm">12,483</span> claimed now</span>
+            <!-- People Claimed Badge -->
+            <div class="inline-flex items-center gap-2 bg-black/40 border border-white/5 rounded-full px-4 py-1.5 mb-8">
+                <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                <span class="text-[11px] text-gray-300"><span id="live-counter" class="font-bold text-white">12,497</span> people claimed</span>
             </div>
 
-            <h1 class="text-2xl font-bold mb-8 leading-snug text-gray-100">
-                Official <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-extrabold text-3xl">1GB Internet</span><br>Reward Available
+            <!-- Main Text -->
+            <h1 class="text-3xl font-bold mb-8 leading-tight">
+                Get <span class="text-green-400">1GB Data</span><br>Completely Free!
             </h1>
 
-            <button onclick="goToScreen2()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 font-bold text-lg shadow-xl shadow-blue-600/20 hover:scale-[1.02] active:scale-95 transition-all ring-1 ring-white/20 group relative overflow-hidden">
-                <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
-                CLAIM GIFT 🎁
+            <!-- Action Button -->
+            <button onclick="goToScreen2()" class="w-full py-4 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#3b82f6] font-bold text-lg shadow-[0_10px_20px_rgba(99,102,241,0.3)] hover:scale-[1.02] transition-transform active:scale-95 text-white flex justify-center items-center gap-2">
+                <span>🎁</span> Claim Now
             </button>
         </div>
 
-        <!-- Screen 2: Operator Selection -->
-        <div id="screen-2" class="glass rounded-[2rem] p-8 hidden opacity-0 scale-95 transition-all duration-500">
-            <h2 class="text-xl font-bold mb-6 text-center text-gray-200">Choose Your SIM</h2>
-            <div class="grid grid-cols-2 gap-4">
-                <button onclick="selectOperator('GP', '017')" class="h-24 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/5 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 transition-all flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-2xl group-hover:scale-110 transition-transform">🔵</span>
-                    <span class="text-xs font-bold text-gray-400 group-hover:text-white">Grameenphone</span>
-                </button>
-                <button onclick="selectOperator('BL', '019')" class="h-24 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/5 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-2xl group-hover:scale-110 transition-transform">🟠</span>
-                    <span class="text-xs font-bold text-gray-400 group-hover:text-white">Banglalink</span>
-                </button>
-                <button onclick="selectOperator('Robi', '018')" class="h-24 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/5 hover:border-red-600 hover:shadow-lg hover:shadow-red-600/20 transition-all flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-2xl group-hover:scale-110 transition-transform">🔴</span>
-                    <span class="text-xs font-bold text-gray-400 group-hover:text-white">Robi</span>
-                </button>
-                <button onclick="selectOperator('Airtel', '016')" class="h-24 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/5 hover:border-red-400 hover:shadow-lg hover:shadow-red-400/20 transition-all flex flex-col items-center justify-center gap-2 group">
-                    <span class="text-2xl group-hover:scale-110 transition-transform">⭕</span>
-                    <span class="text-xs font-bold text-gray-400 group-hover:text-white">Airtel</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Screen 3: Verify Number -->
-        <div id="screen-3" class="glass rounded-[2rem] p-8 hidden opacity-0 scale-95 transition-all duration-500">
-            <div id="input-ui">
-                <h2 class="text-xl font-bold mb-2 text-center">Verify Identity</h2>
-                <p class="text-xs text-gray-400 text-center mb-8">Enter your number to activate bundle</p>
-                
-                <div class="relative mb-8">
-                    <input type="tel" id="phoneInput" class="w-full bg-black/30 border-b-2 border-gray-600 focus:border-green-500 outline-none py-3 text-2xl text-center font-digital tracking-widest transition-colors placeholder-gray-700" placeholder="017XXXXXXXX" maxlength="11">
-                </div>
-
-                <button onclick="startVerification()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 font-bold text-lg shadow-lg shadow-green-500/20 hover:scale-[1.02] transition-transform">
-                    VERIFY & CLAIM
-                </button>
-            </div>
-
-            <!-- Verification Animation -->
-            <div id="verify-anim" class="hidden py-8 flex flex-col items-center">
-                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                </svg>
-                <h3 class="text-lg font-bold text-green-400 mt-4 animate-pulse">Verification Successful</h3>
-                <p class="text-xs text-gray-500 mt-2">Connecting to server...</p>
-            </div>
-        </div>
-
-        <!-- Screen 4: The Fake Loader -->
-        <div id="screen-4" class="glass rounded-[2rem] p-8 hidden opacity-0 scale-95 transition-all duration-500 text-center">
-            <div class="mb-6">
-                <div class="w-16 h-16 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin mx-auto"></div>
-            </div>
-            <h2 class="text-xl font-bold mb-2">Injecting Data Pack...</h2>
-            <p class="text-xs text-gray-400 mb-8 font-mono">Session ID: <span id="sess-id">8X99</span></p>
+        <!-- Screen 2: Operator Selection (Icons Version) -->
+        <div id="screen-2" class="card-ui rounded-[32px] p-8 hidden opacity-0 transition-all duration-500 max-w-[360px] mx-auto w-full border-t border-white/10">
             
-            <div class="w-full bg-gray-800 rounded-full h-3 mb-2 overflow-hidden relative">
-                <div id="fake-progress" class="bg-gradient-to-r from-blue-400 to-purple-500 h-3 rounded-full transition-all duration-100" style="width: 0%"></div>
+            <h2 class="text-2xl font-bold mb-8 text-center text-white glow-text">Select Operator</h2>
+            
+            <div class="grid grid-cols-2 gap-5">
+                
+                <!-- Grameenphone -->
+                <button onclick="selectOperator('GP', '017')" class="group p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300 flex items-center justify-center h-24 shadow-lg hover:shadow-blue-500/20 active:scale-95">
+                    <img src="assets/grameenphone-icon.png" alt="GP" class="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                </button>
+
+                <!-- Banglalink -->
+                <button onclick="selectOperator('BL', '019')" class="group p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-orange-500 hover:bg-orange-500/10 transition-all duration-300 flex items-center justify-center h-24 shadow-lg hover:shadow-orange-500/20 active:scale-95">
+                    <img src="assets/banglalink-icon.png" alt="BL" class="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                </button>
+
+                <!-- Robi -->
+                <button onclick="selectOperator('Robi', '018')" class="group p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-red-600 hover:bg-red-600/10 transition-all duration-300 flex items-center justify-center h-24 shadow-lg hover:shadow-red-600/20 active:scale-95">
+                    <img src="assets/robi-icon.png" alt="Robi" class="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                </button>
+
+                <!-- Airtel -->
+                <button onclick="selectOperator('Airtel', '016')" class="group p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-red-400 hover:bg-red-400/10 transition-all duration-300 flex items-center justify-center h-24 shadow-lg hover:shadow-red-400/20 active:scale-95">
+                    <!-- নোট: ফাইলের নাম যদি শুধু 'airtel.png' হয়, তাহলে নিচের src চেঞ্জ করবেন -->
+                    <img src="assets/airtel-icon.png" alt="Airtel" class="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                </button>
+
             </div>
-            <div class="flex justify-between text-[10px] font-mono text-gray-400 uppercase tracking-widest">
-                <span id="progress-text">Initializing</span>
+        </div>
+
+        <!-- Screen 3: Input & Fake Verify -->
+        <div id="screen-3" class="card-ui rounded-3xl p-8 hidden opacity-0 transition-all duration-500">
+            <div id="input-step">
+                <h2 class="text-2xl font-bold mb-2 text-center">Verify Number</h2>
+                <div class="relative mb-8 mt-6">
+                    <input type="tel" id="phoneInput" class="w-full bg-black/20 border border-white/20 rounded-lg py-3 px-4 text-xl text-center tracking-widest focus:border-green-500 focus:outline-none transition-colors" maxlength="11">
+                </div>
+                <button onclick="startVerification()" class="w-full py-4 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 font-bold text-lg shadow-lg shadow-green-500/30 hover:scale-105 transition-transform">
+                    👉 Submit
+                </button>
+            </div>
+
+            <!-- Fake Verification Animation -->
+            <div id="verify-step" class="hidden text-center py-4">
+                <div class="checkmark-container mb-4">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-green-400">Number Verified!</h3>
+                <p class="text-sm text-gray-400 mt-2">Redirecting to gateway...</p>
+            </div>
+        </div>
+
+        <!-- Screen 4: Fake Loading Bar (The Prank Setup) -->
+        <div id="screen-4" class="card-ui rounded-3xl p-8 hidden opacity-0 transition-all duration-500 text-center">
+            <h2 class="text-xl font-bold mb-4">Processing Request...</h2>
+            <p class="text-xs text-gray-400 mb-6">Do not close the browser</p>
+            
+            <div class="w-full bg-gray-700 rounded-full h-4 mb-2 overflow-hidden relative">
+                <div id="fake-progress" class="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between text-xs font-mono text-gray-400">
+                <span id="progress-text">Connecting...</span>
                 <span id="progress-percent">0%</span>
             </div>
         </div>
 
     </div>
 
-    <!-- Screen 5: PRANK VIDEO OVERLAY -->
-    <div id="screen-5" class="fixed inset-0 z-[100] bg-black hidden flex flex-col items-center justify-center">
-        <!-- Fake Close Button -->
-        <div class="absolute top-5 right-5 z-50 p-2 bg-white/10 rounded-full cursor-pointer hover:bg-white/20" onclick="alert('Wait! Video is not finished!')">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </div>
+    <!-- Screen 5: The PRANK Video -->
+    <div id="screen-5" class="fixed inset-0 z-50 bg-black hidden flex flex-col items-center justify-center">
+        <!-- Fake Close Button (Doesn't work) -->
+        <button onclick="fakeClose()" class="absolute top-4 right-4 text-white/50 hover:text-white z-50">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
 
-        <!-- Video Container (4:3) -->
-        <div class="w-full max-w-lg aspect-[4/3] bg-black relative shadow-2xl shadow-purple-500/20">
-            <video id="prankVideo" class="w-full h-full object-contain" playsinline webkit-playsinline>
+        <div class="w-full max-w-lg aspect-[4/3] bg-black relative">
+            <video id="prankVideo" class="w-full h-full object-contain" playsinline>
                 <source src="web-memes.mp4" type="video/mp4">
             </video>
         </div>
         
-        <div class="mt-8 text-center px-6">
-            <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 animate-bounce mb-2">🤣 PRANKED! 🤣</h1>
-            <p class="text-gray-400 text-sm mb-6">You fell for it! Don't be selfish, prank your friends too!</p>
-            
-            <button onclick="sharePrank()" class="px-8 py-3 bg-[#0088cc] rounded-full font-bold text-white flex items-center gap-2 shadow-lg hover:bg-[#0077b5] transition-colors mx-auto pulse-red">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M2.004 22l1.352-4.968A9.954 9.954 0 012.125 11c0-5.505 4.492-10 10.01-10a9.96 9.96 0 017.072 2.929 9.962 9.962 0 012.93 7.072c0 5.504-4.492 10.001-10.011 10.001-1.68 0-3.32-.42-4.793-1.22L2.004 22z"/></svg>
-                Share on Telegram/WhatsApp
-            </button>
-        </div>
+        <h1 class="text-3xl font-bold text-white mt-6 animate-bounce text-center">🤣 JUST A PRANK! 🤣</h1>
+        <p class="text-gray-400 text-center mt-2 px-4">Don't be angry! Share to prank others.</p>
+
+        <!-- Viral Growth: Share Button -->
+        <button onclick="finalShare()" class="mt-8 px-8 py-3 bg-blue-600 rounded-full font-bold text-white flex items-center gap-2 animate-pulse">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"></path></svg>
+            Share to Unlock
+        </button>
+        
+        <div class="mt-4 text-xs text-gray-600">ID: <span id="uuid"></span></div>
     </div>
 
     <!-- Hidden Footer -->
-    <div class="fixed bottom-2 w-full text-center pointer-events-none opacity-30">
-        <p class="text-[9px] text-gray-500 uppercase tracking-widest">Server Time: <span id="server-time"></span> | Fun Purpose Only</p>
+    <div class="fixed bottom-2 w-full text-center pointer-events-none opacity-20">
+        <p class="text-[10px] text-white">System ID: 8X-99 | For entertainment only</p>
     </div>
 
-    <!-- LOGIC -->
     <script>
-        // --- Configuration ---
-        const userCountStart = 12480;
-        let selectedPrefix = "";
+        // --- Timer Logic (Functional) ---
+        function startCountdown(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
-        // --- 1. Fake Systems (Timer & Counter) ---
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('server-time').innerText = now.toLocaleTimeString();
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration; // Reset loop if needed
+                }
+            }, 1000);
         }
-        setInterval(updateTime, 1000);
 
-        let claimants = userCountStart;
+        // Initialize Timer on Load (12 hours = 43200 seconds)
+        window.onload = function () {
+            const twelveHours = 12 * 60 * 60;
+            const display = document.querySelector('#timer');
+            startCountdown(twelveHours, display);
+        };
+
+        // --- 1. Live Counter Logic ---
+        let count = 12483;
         setInterval(() => {
-            claimants += Math.floor(Math.random() * 3);
-            document.getElementById('live-counter').innerText = claimants.toLocaleString();
-        }, 2500);
+            count += Math.floor(Math.random() * 3);
+            document.getElementById('live-counter').innerText = count.toLocaleString();
+        }, 2000);
 
-        // --- 2. Testimonial Toast System ---
-        const fakeNames = ["Sabbir", "Nadia", "Rakib", "Tania", "Fahim", "Oyshee"];
+        // --- 2. Fake Testimonials ---
+        const names = ["Rahim", "Tania", "Sajid", "Mim", "Karim", "Nusrat"];
+        const toast = document.getElementById('testimonial-toast');
+        const toastName = document.getElementById('toast-name');
+
         function showToast() {
-            const name = fakeNames[Math.floor(Math.random() * fakeNames.length)];
-            const toast = document.getElementById('testimonial-toast');
-            document.getElementById('toast-name').innerText = name;
-            
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            toastName.innerText = `${randomName} just got 1GB!`;
             toast.classList.remove('hidden', 'toast-exit');
             toast.classList.add('toast-enter');
             
@@ -251,121 +258,126 @@
                 setTimeout(() => toast.classList.add('hidden'), 500);
             }, 3000);
         }
-        setTimeout(showToast, 2000);
-        setInterval(showToast, 6000);
+        setInterval(showToast, 4500); // Show every 4.5 seconds
 
-        // --- 3. Navigation Functions ---
-        function switchScreen(hideId, showId) {
-            const hideEl = document.getElementById(hideId);
-            const showEl = document.getElementById(showId);
-            
-            hideEl.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                hideEl.classList.add('hidden');
-                showEl.classList.remove('hidden');
-                // Force Reflow
-                void showEl.offsetWidth;
-                showEl.classList.remove('opacity-0', 'scale-95');
-            }, 400);
-        }
-
+        // --- 3. Navigation & Logic ---
+        
         function goToScreen2() {
-            // Push history to trap back button
-            history.pushState(null, null, location.href);
-            window.onpopstate = function () {
-                history.go(1);
-            };
             switchScreen('screen-1', 'screen-2');
+            // TRAP BACK BUTTON HERE
+            pushFakeHistory();
         }
 
         function selectOperator(name, prefix) {
-            selectedPrefix = prefix;
             document.getElementById('phoneInput').value = prefix;
             switchScreen('screen-2', 'screen-3');
-            // Auto focus input
             setTimeout(() => document.getElementById('phoneInput').focus(), 500);
         }
 
         function startVerification() {
             const input = document.getElementById('phoneInput');
-            if (input.value.length < 11) {
-                input.style.borderBottomColor = "red";
-                input.classList.add('animate-pulse');
-                setTimeout(() => input.classList.remove('animate-pulse'), 500);
+            if(input.value.length < 11) {
+                alert("Please enter a valid 11-digit number!");
                 return;
             }
-
-            // Show Verify Animation
-            document.getElementById('input-ui').classList.add('hidden');
-            document.getElementById('verify-anim').classList.remove('hidden');
+            
+            // Hide Input, Show Verify Animation
+            document.getElementById('input-step').classList.add('hidden');
+            document.getElementById('verify-step').classList.remove('hidden');
 
             setTimeout(() => {
+                // Move to Loading Screen
                 switchScreen('screen-3', 'screen-4');
-                startLoadingBar();
+                startFakeLoading();
             }, 2500);
         }
 
-        // --- 4. The Trap (Loading & Prank) ---
-        function startLoadingBar() {
+        function startFakeLoading() {
             const bar = document.getElementById('fake-progress');
-            const percentTxt = document.getElementById('progress-percent');
-            const statusTxt = document.getElementById('progress-text');
+            const txt = document.getElementById('progress-percent');
+            const status = document.getElementById('progress-text');
             let width = 0;
 
             const interval = setInterval(() => {
-                if (width >= 92) {
+                if (width >= 90) {
                     clearInterval(interval);
-                    statusTxt.innerText = "FINALIZING...";
-                    statusTxt.classList.add('text-red-400', 'font-bold');
+                    status.innerText = "Finalizing...";
+                    status.classList.add('text-red-400', 'animate-pulse');
                     
-                    // Pause for suspense, then BOOM
-                    setTimeout(triggerPrank, 1500);
+                    // THE PRANK TRIGGER
+                    setTimeout(() => triggerPrank(), 1500); // Stuck at 90% for 1.5s
                 } else {
-                    // Random speed
-                    width += Math.random() * 4;
-                    if (width > 92) width = 92;
+                    width += Math.random() * 5; // Random speed
+                    if(width > 90) width = 90;
+                    bar.style.width = width + '%';
+                    txt.innerText = Math.floor(width) + '%';
                     
-                    bar.style.width = width + "%";
-                    percentTxt.innerText = Math.floor(width) + "%";
-
-                    if(width > 30) statusTxt.innerText = "CONTACTING OPERATOR...";
-                    if(width > 60) statusTxt.innerText = "ALLOCATING BYTE...";
-                    if(width > 80) statusTxt.innerText = "VERIFYING USER...";
+                    if(width > 40) status.innerText = "Allocating Data...";
+                    if(width > 70) status.innerText = "Confirming with Server...";
                 }
-            }, 150);
+            }, 100);
         }
 
         function triggerPrank() {
-            // Vibrate
-            if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 500]);
-
-            // UI Switch
-            document.getElementById('app-container').classList.add('hidden');
-            const prankScreen = document.getElementById('screen-5');
-            prankScreen.classList.remove('hidden');
+            // Vibrate phone
+            if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
             
-            // Play Video
+            // Hide everything, show video
+            document.getElementById('app-container').classList.add('hidden');
+            document.getElementById('screen-5').classList.remove('hidden');
+            
             const video = document.getElementById('prankVideo');
-            video.volume = 1.0;
-            video.play().catch(e => console.log("Auto-play blocked, waiting for interaction"));
+            video.volume = 1.0; // Max volume
+            video.play();
+            
+            // Copy link automatically (User interaction exists, so likely to work)
+            navigator.clipboard.writeText("🎁 1GB Free! Claim: " + window.location.href).catch(()=>{});
         }
 
-        function sharePrank() {
-            const text = "🎁 1GB Free Data Offer! Claim yours now: " + window.location.href;
+        function switchScreen(hideId, showId) {
+            const hideEl = document.getElementById(hideId);
+            const showEl = document.getElementById(showId);
+            hideEl.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                hideEl.classList.add('hidden');
+                showEl.classList.remove('hidden');
+                void showEl.offsetWidth; 
+                showEl.classList.remove('opacity-0');
+            }, 300);
+        }
+
+        // --- 4. Special Tricks ---
+
+        // Disable Back Button Logic
+        function pushFakeHistory() {
+            history.pushState(null, null, location.href);
+            window.onpopstate = function () {
+                history.go(1);
+                // Optional: Show a message "Don't leave now, data is reserving..."
+            };
+        }
+
+        // Fake Close Button
+        function fakeClose() {
+            alert("Cannot close while processing reward!");
+        }
+
+        // Final Share
+        function finalShare() {
             if (navigator.share) {
                 navigator.share({
-                    title: '1GB Gift',
-                    text: text,
+                    title: 'Free 1GB Offer!',
+                    text: '🎁 1GB MB Free! Claim Now!',
                     url: window.location.href
                 });
             } else {
-                // Fallback
-                prompt("Copy this link and send to friends:", window.location.href);
+                alert("Link Copied! Send to friends.");
             }
         }
+        
+        // Random UUID for realism
+        document.getElementById('uuid').innerText = Math.random().toString(36).substring(7).toUpperCase();
 
-        // Random Session ID
-        document.getElementById('sess-id').innerText = Math.random().toString(36).substr(2, 6).toUpperCase();
     </script>
 </body>
 </html>
